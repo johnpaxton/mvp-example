@@ -8,7 +8,7 @@ router.get('/', async function (req, res, next) {
     const books = await Book.findAll();
     res.status(200).json(books);
   } catch (error) {
-    console.error('Could not fetch GET /api/books');
+    console.error('Could not fetch GET /api/books:', error);
     res.status(500).send('Could not GET /api/books');
   }
 });

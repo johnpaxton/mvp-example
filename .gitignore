@@ -1,5 +1,6 @@
 # Important
 orm/**/*config*
+orm/**/*.pem
 
 # Logs
 logs
