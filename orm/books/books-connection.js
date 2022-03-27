@@ -1,17 +1,24 @@
 const { Sequelize } = require('sequelize');
-const config = require('./books-connection-config');
 
 // prettier-ignore
-let connectionString = `mysql://${config.host ?? 'localhost'}:3306/${config.database}`;
+let connectionString = `mysql://${process.env.MYSQL_HOST ?? 'localhost'}:3306/${process.env.MYSQL_DATABASE}`;
 console.log(`**** Connection String ********
 ${connectionString}
+cert: ${process.env.MYSQL_CERTIFICATE}
 **** End Connection String ****`);
 
 // Step 3 couldn't happen without this
 const connection = new Sequelize(connectionString, {
-  username: config.username,
-  password: config.password,
-  dialectOptions: config.dialectOptions,
+  username: process.env.MYSQL_USERNAME,
+  password: process.env.MYSQL_PASSWORD,
+  dialectOptions: process.env.MYSQL_CERTIFICATE
+    ? {
+        ssl: {
+          rejectUnauthorized: true,
+          ca: [process.env.MYSQL_CERTIFICATE],
+        },
+      }
+    : {},
   // logging: false,
   // Default for all Models, saves us some typing
   define: {
