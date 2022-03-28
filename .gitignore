@@ -1,6 +1,7 @@
 # Important
 orm/**/*config*
 orm/**/*.pem
+dist
 
 # Logs
 logs
@@ -60,6 +61,8 @@ typings/
 
 # dotenv environment variables file
 .env
+.env.*
+*.env
 
 # next.js build output
 .next
