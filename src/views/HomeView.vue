@@ -1,5 +1,18 @@
 <template>
   <div class="row">
+    <nav class="col">
+      <p>These don't work on localhost</p>
+      <ul>
+        <li>
+          <a :href="`${apiPrefix}/api`">/api</a>
+        </li>
+        <li>
+          <a :href="`${apiPrefix}/api/books`">/api/books</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <div class="row">
     <div class="col">
       <LeftComponent />
     </div>
@@ -19,6 +32,12 @@ export default {
   components: {
     LeftComponent,
     RightComponent
+  },
+  data() {
+    console.log('api prefix: ', process.env.VUE_APP_API_PREFIX)
+    return {
+      apiPrefix: process.env.VUE_APP_API_PREFIX
+    }
   }
 }
 </script>
