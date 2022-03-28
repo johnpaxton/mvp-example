@@ -2,6 +2,8 @@
 orm/**/*config*
 orm/**/*.pem
 dist
+.vscode
+tmp
 
 # Logs
 logs
