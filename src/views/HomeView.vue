@@ -36,7 +36,7 @@ export default {
   data() {
     console.log('api prefix: ', process.env.VUE_APP_API_PREFIX)
     return {
-      apiPrefix: process.env.VUE_APP_API_PREFIX
+      apiPrefix: process.env.VUE_APP_API_PREFIX ?? ''
     }
   }
 }
